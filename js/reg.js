@@ -11,7 +11,7 @@ $(function(){
       },
       contentType: "application/json",
       success: function(da){
-        if(data.state == "success") {
+        if(da.state == "success") {
           console.log(da);
           const pdom = "<p class='p-input pos'></p>";
           const dom = "<label for='管理员'>管理员</label><input type='radio' name='role' value='管理员'>";
@@ -52,7 +52,7 @@ $(function(){
             dataType: 'JSON',
             contentType: "application/json",
             success: function(da){
-              if(data.state == "success") {
+              if(da.state == "success") {
                 console.log(da);
                 window.location.href = "login.html";
               } else {

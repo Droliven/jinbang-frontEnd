@@ -1,6 +1,6 @@
 $(function(){
-    // var domin = "http://localhost:8081/jinbang";
-    var domin = "http://11pm.top:8081/jinbang";
+    var domin = "http://localhost:8081/jinbang";
+    // var domin = "http://11pm.top:8081/jinbang";
 
     layui.use(['element', 'layer'], function() {
     let element = layui.element,
@@ -21,20 +21,21 @@ $(function(){
         //jQuery.support.cors = true;
         // console.log("jfdaifjaiooi")
         $.ajax({
-            type: "GET",
             url: domin + "/logout",
-            data: JSON.stringify({data: {session: window.localStorage.getItem("session")}}),
-            dataType: 'JSON',
-			contentType: "application/json",
+            type: "post",
             xhrFields: {
                 withCredentials: true
             },
-            success: function(data) {
-                if(data.state == "success") {
+            data: JSON.stringify({data: {session: window.localStorage.getItem("session")}}),
+            dataType: 'json',
+			contentType: "application/json",
+            
+            success: function(da) {
+                if(da.state == "success") {
                     window.localStorage.clear();
                     window.location.href = "index.html";
                 } else {
-                    console.log("err");
+                    console.log(da.msg);
                     window.location.reload();
                 }
             },
@@ -97,17 +98,9 @@ $(function(){
         } else {
             if ($(this).attr("lay-href") != undefined) {
                 var flag = true;
-                // url
+                
                 var url = $(this).attr("lay-href");
-                // console.log(url);
-                // //判断选项卡中是否存在已打开的页面，如果有直接切换到打开页面
-                // $(".layui-tab-title li").each(function(i, e) {
-                //     if ($(this).attr("lay-id") == url) {
-                //         //切换选项卡
-                //         element.tabChange('pagetabs', url);
-                //         flag = false;
-                //     }
-                // })
+                
                 switch (url) {
                     case "chooseItem.html":
                     {
@@ -130,21 +123,9 @@ $(function(){
                         break;
                     }
                 }
-                // if (url == "chooseItem.html") {
-                // //新增选项卡
-                // element.tabAdd('pagetabs', {
-                //     title: elem[0].innerText
-                //         // ,content: '<iframe src="'+url+'" class="layui-admin-iframe" scrolling="auto" frameborder="0" onload="setIframeHeight(this)"></iframe>'
-                //         ,
-                //     content: '<iframe src="' + url + '" class="layui-admin-iframe" scrolling="auto" frameborder="0" style="width:100%;height:99%;""></iframe>',
-                //     id: url
-                // });
-                // //切换选项卡
-                // element.tabChange('pagetabs', url);
-                // FrameWH();
-                // }
+                
             }
         }
     });
 });
-}
+})

@@ -38,14 +38,14 @@ $(function(){
 							dataType: 'JSON',
 							contentType: "application/json",
 							success: function(da){
-									if(data.state == "success") {
+									if(da.state == "success") {
 										console.log(da);
 										window.localStorage.setItem("name", inp);
 										window.localStorage.setItem("userdetail", JSON.stringify(da.data));
 										window.localStorage.setItem("session", da.session);
 										window.location.href = "home.html";
 									} else {
-										console.log("err");
+										console.log(da.msg);
 									}
 									
 							},

@@ -2,12 +2,6 @@
 (function($) {
     //'use strict';
 
-
-    /*
-     *----------------------------------
-     * Document Ready
-     *----------------------------------
-     */
     $(document).ready(function() {
 
 
