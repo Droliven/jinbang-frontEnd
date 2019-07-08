@@ -12,33 +12,6 @@
     <link rel="stylesheet" href="./layui/css/modules/layer/default/layer.css">
     <script type="text/javascript" src="js/FileSaver.js"></script>
     <script type="text/javascript" src="js/jquery.wordexport.js"></script>
-    <script>
-        var domin = "http://localhost:8081/jinbang";
-        // var domin = "http://11pm.top:8081/jinbang";
-
-        var paper; // 全局变量
-        $.ajax({
-            type: "post",
-            url: domin + "/getAllPaperDetail",
-            data: JSON.stringify({session: window.localStorage.getItem("session"), data: {userdetail: window.localStorage.getItem("userdetail")}}),
-            dataType: 'JSON',
-            contentType : "application/json",
-            xhrFields: {
-                withCredentials: true
-            },
-            success: function(da) {
-                if(da.state == "success") {
-                    window.localStorage.setItem("session", da.session);
-                    paper = da.data;
-                } else {
-                    console.log(da.msg);
-                }
-            },
-            error: function(da){
-                console.log(da);
-            }
-        })
-    </script>
 </head>
 
 <body>

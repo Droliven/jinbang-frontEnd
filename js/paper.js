@@ -1,4 +1,33 @@
 $(function(){
+        // var domin = "http://localhost:8081/jinbang";
+        var domin = "http://11pm.top:8081/jinbang";
+        var paper; // 全局变量
+
+        $(document).ready(function() {
+            $.ajax({
+                type: "post",
+                url: domin + "/getAllPaperDetail",
+                data: JSON.stringify({session: window.localStorage.getItem("session"), data: {userdetail: window.localStorage.getItem("userdetail")}}),
+                dataType: 'JSON',
+                contentType : "application/json",
+                xhrFields: {
+                    withCredentials: true
+                },
+                success: function(da) {
+                    if(da.state == "success") {
+                        window.localStorage.setItem("session", da.session);
+                        paper = da.data;
+                        console.log("getAllPaperDetail: " + paper);
+                    } else {
+                        console.log(da.msg);
+                    }
+                },
+                error: function(da){
+                    console.log(da);
+                }
+            })
+        })
+
     // 显示试卷内容
     function getPaper(data) {
         data.forEach(function(item) {
@@ -53,7 +82,7 @@ $(function(){
                     $(".word").find('br').remove();
                     $("#examtitle").text("试卷内容");
                 }
-                getALL(paper.allPaperDetail);
+                getALL(paper);
                 layer.msg("请输入搜索内容！");
             } else {
                 console.log(para);
@@ -64,7 +93,7 @@ $(function(){
                 var list = [];
                 var flag = 0;
                 var cont = [];
-                list = paper.allPaperDetail; // 所有题目列表
+                list = paper; // 所有题目列表
                 list.forEach(function(item) {
                     if (para == item.title) {
                         flag = 1;

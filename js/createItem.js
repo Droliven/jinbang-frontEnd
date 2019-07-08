@@ -1,8 +1,8 @@
 $(function(){
     //JavaScript代码区域
     // 创建富文本编辑器
-    var domin = "http://localhost:8081/jinbang";
-    // var domin = "http://11pm.top:8081/jinbang";
+    // var domin = "http://localhost:8081/jinbang";
+    var domin = "http://11pm.top:8081/jinbang";
 
     // editor1
     var E = window.wangEditor;
@@ -415,7 +415,6 @@ $(function(){
                 "prepoint": 4
             }];
             para.user = {
-                "authority": "录入组卷员",
                 "name": data.field.name,
                 "uid": 1
             };

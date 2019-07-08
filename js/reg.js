@@ -1,6 +1,6 @@
 $(function(){
-  // var domin = "http://11pm.top:8081/jinbang";
-  var domin = "http://localhost:8081/jinbang";
+  var domin = "http://11pm.top:8081/jinbang";
+  // var domin = "http://localhost:8081/jinbang";
 
   $(document).ready(function() {
     $.ajax({

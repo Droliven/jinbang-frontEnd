@@ -1,8 +1,8 @@
 $(function(){
     //JavaScript代码区域
 
-    const domin = "http://localhost:8081/jinbang";
-    // var domin = "http://11pm.top:8081/jinbang";
+    // const domin = "http://localhost:8081/jinbang";
+    var domin = "http://11pm.top:8081/jinbang";
 
     // 创建富文本编辑器
     var E = window.wangEditor;
@@ -84,7 +84,7 @@ $(function(){
                 success: function(da) {
                     if(da.state == "success") {
                         window.localStorage.setItem("session", da.session);
-                        itemradio = data.itemradio;
+                        itemradio = da.data;
                         console.log(itemradio);
                         let types = itemradio[0].types;
                         let sources = itemradio[1].sources;

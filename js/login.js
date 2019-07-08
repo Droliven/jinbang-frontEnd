@@ -1,4 +1,7 @@
 $(function(){
+	var domin = "http://11pm.top:8081/jinbang";
+	// var domin = "http://localhost:8081/jinbang";
+
 	function checkAccount(username){
 		if (username == '') {
 			$('.num-err').removeClass('hide').find("em").text('请输入账户');
@@ -24,10 +27,6 @@ $(function(){
 		var inp = $.trim($('#num').val());
 		var pass = $.trim($('#pass').val());
 		if (checkAccount(inp) && checkPass(pass)) {
-			
-			// var domin = "http://11pm.top:8081/jinbang";
-			var domin = "http://localhost:8081/jinbang";
-
 			$.ajax({
 							url: domin + '/home',
 							type: 'post',

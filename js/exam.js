@@ -1,6 +1,6 @@
 $(function(){
-    const domin = "http://localhost:8081/jinbang";
-    // const domin = "http://11pm.top:8081/jinbang";
+    // const domin = "http://localhost:8081/jinbang";
+    const domin = "http://11pm.top:8081/jinbang";
 
     // 导出word
     $(function() {
@@ -23,9 +23,9 @@ $(function(){
                 success: function(da) {
                     if(da.state == "success") {
                         window.localStorage.setItem("session", da.session);
-                        if(da.data.pid > 0) {
+                        if(da.data > 0) {
                             alert("添加成功！");
-                            window.localStorage.setItem("pid", da.data.pid);
+                            window.localStorage.setItem("pid", da.data);
                             $("#exametitle").text($("#papertitle").val());
                         }
                     } else {
@@ -404,7 +404,7 @@ $(function(){
                 success: function(da) {
                     if(da.state == "success") {
                         window.localStorage.setItem("session", da.session);
-                        itemRes = data.itemchooses;
+                        itemRes = da.data;
                         // console.log(itemRes);
                         // 为表格渲染数据
 

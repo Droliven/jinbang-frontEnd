@@ -1,6 +1,6 @@
 $(function(){
-        var domin = "http://localhost:8081/jinbang";
-        // var domin = "http://11pm.top:8081/jinbang";
+        // var domin = "http://localhost:8081/jinbang";
+        var domin = "http://11pm.top:8081/jinbang";
 
         layui.use(['element', 'jquery', 'form', 'table'], function() {
             let element = layui.element;
