@@ -62,14 +62,14 @@ $(function(){
     }
 
     $(function() {
-        $("#getword").click(function(event) {
+        $("#getword").on('click', function(event) {
             $(".word").wordExport($("#exmatitle").val());
         });
     })
 
     layui.use('layer', function() {
         var layer = layui.layer; // 引入layer
-        $(".layui-btn").click(function() {
+        $("#search1").click(function() {
             var para = $("#search").val();
             if (!para) {
                 // 未输入搜索内容
@@ -103,6 +103,7 @@ $(function(){
                         cont = item.buildpapers;
                         $("#examtitle").text(item.title);
                         getPaper(cont);
+                        console.log("1")
                     }
                 })
                 if (flag == 0) {

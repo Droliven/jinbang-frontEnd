@@ -41,6 +41,7 @@ $(function(){
 
     $(function() {
         $("#getword").click(function(event) {
+            console.log($("#exmatitle").innerHTML);
             $(".word").wordExport($("#exmatitle").innerHTML);
         });
     })
