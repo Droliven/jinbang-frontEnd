@@ -44,13 +44,15 @@ $(function(){
 										window.localStorage.setItem("session", da.session);
 										window.location.href = "home.html";
 									} else {
+										alert(da.msg);
 										console.log(da.msg);
 									}
-									
-							},
-							error: function(da){
+								},
+								error: function(da) {
 									console.log(da);
-							}
+									alert(da);
+									// window.location.href='index.html';
+								}
 			});
 		}
 	});

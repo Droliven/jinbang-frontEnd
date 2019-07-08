@@ -35,12 +35,14 @@ $(function(){
                     window.localStorage.clear();
                     window.location.href = "index.html";
                 } else {
+                    alert(da.msg);
                     console.log(da.msg);
-                    window.location.reload();
                 }
             },
-            error: (da)=>{
+            error: function(da) {
                 console.log(da);
+                alert(da);
+                // window.location.href='index.html';
             }
         });
     })

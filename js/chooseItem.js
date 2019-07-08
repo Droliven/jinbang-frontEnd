@@ -93,11 +93,13 @@ $(function(){
                                 }
                                 form.render();
                         } else {
+                            alert(da.msg)
                             console.log(da.msg);
                             }
                         }
                     },
                     error: function(da) {
+                        alert(da)
                         console.log(da);
                     }
                 })
@@ -396,11 +398,13 @@ $(function(){
                                 })
                             }
                         } else {
+                            alert(da.msg);
                             console.log(da.msg);
                         }
                     },
                     error: function(da) {
                         console.log(da);
+                        alert(da);
                         // window.location.href='index.html';
                     }
                 })
@@ -459,11 +463,14 @@ $(function(){
                                     window.localStorage.setItem("session", da.session);
                         
                                 } else {
+                                    alert(da.msg);
                                     console.log(da.msg);
                                 }
                             },
-                            error: (da) => {
+                            error: function(da) {
                                 console.log(da);
+                                alert(da);
+                                // window.location.href='index.html';
                             }
                         });
                     });
@@ -498,11 +505,14 @@ $(function(){
                                 console.log("等待编辑");
                                 handleFatherSrc();
                             } else {
+                                alert(da.msg);
                                 console.log(da.msg);
                             }
                         },
                         error: function(da) {
                             console.log(da);
+                            alert(da);
+                            // window.location.href='index.html';
                         }
                     })
                 }

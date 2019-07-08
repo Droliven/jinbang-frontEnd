@@ -23,11 +23,10 @@ $(function(){
                 success: function(da) {
                     if(da.state == "success") {
                         window.localStorage.setItem("session", da.session);
-                        if(da.data > 0) {
-                            alert("添加成功！");
-                            window.localStorage.setItem("pid", da.data);
-                            $("#exametitle").text($("#papertitle").val());
-                        }
+                        alert("添加成功！");
+                        console.log(da.data);
+                        // window.localStorage.setItem("pid", da.data);
+                        $("#exametitle").text($("#papertitle").val());
                     } else {
                         console.log(da.msg);
                     }
@@ -435,11 +434,14 @@ $(function(){
                             data: tableData
                         })
                     } else {
+                        alert(da.msg);
                         console.log(da.msg);
                     }
                 },
-                error: (da) => {
+                error: function(da) {
                     console.log(da);
+                    alert(da);
+                    // window.location.href='index.html';
                 }
             })
             return false;
@@ -526,7 +528,7 @@ $(function(){
         $(function() {
             $("#gopaper").click(function(event) {
                 let para = {
-                    "pid": parseInt(window.localStorage.getItem("pid")),
+                    "title": $("#papertitle").val(),
                     "items": $.parseJSON(localStorage.exam)
                 };
                 para = JSON.stringify(para);
@@ -546,11 +548,13 @@ $(function(){
                             alert("组成试卷成功");
                             window.location.reload();
                         } else {
+                            alert(da.msg);
                             console.log(da.msg);
                         }
                     },
-                    error: function(da){
+                    error: function(da) {
                         console.log(da);
+                        alert(da);
                         // window.location.href='index.html';
                     }
                 })

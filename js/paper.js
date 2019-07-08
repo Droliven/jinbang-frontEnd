@@ -19,11 +19,14 @@ $(function(){
                         paper = da.data;
                         console.log("getAllPaperDetail: " + paper);
                     } else {
+                        alert(da.msg);
                         console.log(da.msg);
                     }
                 },
-                error: function(da){
+                error: function(da) {
                     console.log(da);
+                    alert(da);
+                    // window.location.href='index.html';
                 }
             })
         })

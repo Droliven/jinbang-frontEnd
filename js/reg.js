@@ -27,11 +27,14 @@ $(function(){
             $("#rolesradio p:last").append(newdom);
           })  
         } else {
-          console.log("err")
-        }
+              alert(da.msg);
+              console.log(da.msg);
+          }
       },
-      error: function(da){
+      error: function(da) {
           console.log(da);
+          alert(da);
+          // window.location.href='index.html';
       }
     })
   });
@@ -56,11 +59,14 @@ $(function(){
                 console.log(da);
                 window.location.href = "login.html";
               } else {
-                console.log("err");
-              }
+                    alert(da.msg);
+                    console.log(da.msg);
+                }
             },
-            error: function(da){
+            error: function(da) {
                 console.log(da);
+                alert(da);
+                // window.location.href='index.html';
             }
     });
 	});

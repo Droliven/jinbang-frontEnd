@@ -43,11 +43,13 @@ $(function(){
                         window.localStorage.setItem("session", da.session);
             
                     } else {
+                        alert(da.msg);
                         console.log(da.msg);
                     }
                 },
-                error: function(da){
+                error: function(da) {
                     console.log(da);
+                    alert(da);
                     // window.location.href='index.html';
                 }
             })
@@ -203,11 +205,13 @@ $(function(){
                         $("#groupDiv").append("<input type='button'onclick='a111()' id='goto' class='layui-btn' value='修改路径'></input>");
                         form.render();
                     } else {
+                        alert(da.msg);
                         console.log(da.msg);
                     }
                 },
-                error: function(da){
+                error: function(da) {
                     console.log(da);
+                    alert(da);
                     // window.location.href='index.html';
                 }
             })
@@ -440,11 +444,13 @@ $(function(){
                             $("#subPage", window.parent.document).attr("src", "chooseItem.html");
                         }
                     } else {
+                        alert(da.msg);
                         console.log(da.msg);
-                    }                    
+                    }
                 },
-                error: function(da){
+                error: function(da) {
                     console.log(da);
+                    alert(da);
                     // window.location.href='index.html';
                 }
             })
